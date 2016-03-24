@@ -1,3 +1,3 @@
 <?php
-	$GLOBALS['bd'] = "garage";
+	$GLOBALS['dbname'] = "garage";
 ?>

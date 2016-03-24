@@ -1,7 +1,7 @@
 <?php
 require_once("config/config.inc.php");
-require_once("")
-class Database extends PDO{
+require_once("config/db.inc.php");
+class DatabaseIns extends PDO{
     private $host;
     private $user;
     private $pass;
@@ -16,6 +16,7 @@ class Database extends PDO{
         $this->setUser($GLOBALS['USER']);
         $this->setPass($GLOBALS['PASS']);
         $this->setDbName($GLOBALS['dbname']);
+        $this->Open();
 
 
     }
@@ -24,14 +25,17 @@ class Database extends PDO{
         try{
         // Set DSN
         $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
-        parent::__construct($dsn,$this->getUser(),$this->getPass());
-        
+        parent::__construct($dsn,$this->getUser(),$this->getPass());       
         }catch(Exception $e){
-            echo "BUM";
+            echo "ERROR AL CREAR CONEXIÓN";
         }
-
-   
-
+    }
+    
+    
+    public function executeQuery($query){
+        $query->execute();
+        $results = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $results;
     }
 
     public function getDbName(){
@@ -44,7 +48,8 @@ class Database extends PDO{
 
     public function getHost(){
         return $this->host;
-
+    }
+    
     public function setHost($value){
         $this->host = $value;
     }

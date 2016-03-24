@@ -1,31 +1,24 @@
 <?php
-require_once("../model/autoload.php");
+require_once("function_AutoLoad.php");
+$warnings = array();
 session_start();
-$garage=unserialize($_SESSION["garage"]);
 if (isset($_POST["submit"])){
-    $user=$garage->searchUser($_POST["login"]);
-    if ($user){
-        if ($user->getPassword()== $_POST["pass"]){
-          $_SESSION["login"]=$_POST["login"];
-          $_SESSION["islogged"]=true;
-          $_SESSION["warning"]=null;
-          if (isset($_POST["remember"])){
-                setCookie("user",$_POST["login"],time()+3600,"/");  
-          }
-          header("Location:../view/menu.php");
+    $visitant = new User($_POST["login"],$_POST["pass"]);
+    if ($visitant->exists()){
+        if ($visitant->validateUser()){
+            header("Location:../view/menu.php");
+            $_SESSION["user"]=$visitant->getLogin();
+            $_SESSION["isadmin"]=$visitant->getPassword();
+            $_SESSION["islogged"]=true;
         }else{
-          $array=array();
-          array_push($array,"<strong>Incorrect Password</strong>");
-          $_SESSION["warning"]=$array;
-          header("Location:../view/login.php");
+            array_push($warnings,"<strong>Password not valid</strong>");
         }
     }else{
-      $array=array();
-      array_push($array,"<strong>This user does not exist</strong>");
-      $_SESSION["warning"]=$array;
-      header("Location:../view/login.php");
+         array_push($warnings,"<strong>User not found</strong>");
     }
 }else{
-  header("Location:../view/login.php");
+    array_push($warnings,"<strong>User not found</strong>");
 }
+
+require_once("../view/login.php");
  ?>

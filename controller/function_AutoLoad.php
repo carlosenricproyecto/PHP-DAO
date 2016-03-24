@@ -1,13 +1,14 @@
 <?php
 function __autoload($class_name){
-    $root = $_SERVER['DOCUMENT_ROOT']+"M07/UF2/projecte";
+    $root = "/var/www/html/M07/Uf4/PHP-DAO";
     $curdir = getcwd();
-    chdir("$root");
+    chdir($root);
 
-    $nomFile="class".$class_name.".php";
-    $arxiuDAO="model/PersistentLayer/".$nomFile;
-    $arxiuBusiness="model/BusinessLayer/".$nomFile;
-    $arxiuConfig="config/".$nomFile;
+    $nomBusiness="class".$class_name.".php";
+    $nomDao=$class_name.".php";
+    $arxiuDAO="model/PersistentLayer/".$nomDao;
+    $arxiuBusiness="model/BusinessLayer/".$nomBusiness;
+    //$arxiuConfig="config/".$nomFile;
 
     if(file_exists($arxiuDAO)){
         require_once $arxiuDAO;

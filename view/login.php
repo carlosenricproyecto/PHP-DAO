@@ -21,8 +21,8 @@ require_once("showMessageWarnings.php");
 <div class="col-md-4"></div>
 <div class="col-md-4">
 <?php
-  if(isset($_SESSION["warning"])){
-    showMessageWarnings($_SESSION["warning"]);
+  if(isset($warnings)){
+    showMessageWarnings($warnings);
   }
 ?>
 </div>

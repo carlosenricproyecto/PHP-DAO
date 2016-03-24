@@ -14,8 +14,7 @@
          <ul class="nav navbar-nav navbar-left">
 
 <?php
-  $user=$garage->searchUser($_SESSION["login"]);
-  if ($user->isAdmin()){
+  if (isset($_SESSION["isadmin"]) && $_SESSION["isadmin"]==true){
 ?>
         <li><a href="../view/vehicleForm.php"> Register a Vehicle </a></li>
         <li><a href="../view/repairTypeForm.php"> New Repair Type</a></li>

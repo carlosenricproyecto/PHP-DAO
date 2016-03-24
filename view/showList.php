@@ -1,6 +1,5 @@
 <?php
 require_once("header.php");
-require_once("../model/autoload.php");
 $array=$_SESSION["list"];
 $title=$_SESSION["title"];
   $class_vars=$array[0]->getVars();

@@ -1,11 +1,10 @@
 <?php
-  require_once("../controller/accessController.php");
-  require_once("../model/autoload.php");
+  //require_once("../controller/accessController.php");
+  require_once("../controller/function_AutoLoad.php");
   session_start();
-
-  if (!accessController()){
+  /*if (!accessController()){
     header("Location:login.php");
-  }
+  }*/
   $garage=unserialize($_SESSION["garage"]);
   $name=$garage->getName();
 ?>
