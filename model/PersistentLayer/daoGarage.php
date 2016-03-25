@@ -119,6 +119,25 @@ Class daoGarage {
         }
         return $repairs;
     }
+    
+    public function fetchGasTypes(){
+        $gastypes=array();
+        try{
+            $con = new DatabaseIns();
+            $query= $con->prepare("SELECT * FROM gas");
+            $res=$con->executeQuery($query);
+            
+            foreach($res as $row){
+                $id_gas=$row["id_gas"];
+                $description=$row["description"];
+                $gastype=new Gas($id_gas,$description);
+                array_push($gastypes,$gastype);
+            }
+        } catch (Exception $ex) {
+
+        }
+        return $gastypes;
+    }
 
 }
 ?>

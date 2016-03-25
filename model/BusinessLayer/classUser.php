@@ -7,7 +7,6 @@ Class User {
     private $admin;
 
     public function __construct() {
-
         $params = func_get_args();
         $num_params = func_num_args();
         $function = "__construct" . $num_params;

@@ -5,8 +5,7 @@
   /*if (!accessController()){
     header("Location:login.php");
   }*/
-  $garage=unserialize($_SESSION["garage"]);
-  $name=$garage->getName();
+  $name="Dr. Sayos Garage";
 ?>
 
 <html>
@@ -14,14 +13,14 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../view/bootstrap/css/bootstrap.min.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../libs/bootstrap/css/bootstrap.min.css">
+  
+  <script src="../libs/jquery/jquery-1.12.2.min.js"></script>
+  <script src="../libs/bootstrap/js/bootstrap.min.js"></script>
   <link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Dosis:400,600' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
-      <LINK rel="stylesheet" type="text/css" href="css/styles.css" />
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
   <title><?php echo $name; ?></title>
 </head>
 <body>

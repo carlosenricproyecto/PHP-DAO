@@ -26,6 +26,11 @@ Class Garage {
     public function setGasTypes($gasTypes) {
         $this->gasTypes = $gasTypes;
     }
+    public function populateGasTypes(){
+        $daogarage = new daoGarage();
+        $gastypes = $daogarage->fetchGasTypes();
+        $this->setGasTypes($gastypes);
+    }
 
     public function getUsers() {
         return $this->users;
