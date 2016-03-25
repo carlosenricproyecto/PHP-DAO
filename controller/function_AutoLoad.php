@@ -8,7 +8,6 @@ function __autoload($class_name){
     $nomDao=$class_name.".php";
     $arxiuDAO="model/PersistentLayer/".$nomDao;
     $arxiuBusiness="model/BusinessLayer/".$nomBusiness;
-    //$arxiuConfig="config/".$nomFile;
 
     if(file_exists($arxiuDAO)){
         require_once $arxiuDAO;

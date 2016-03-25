@@ -1,7 +1,7 @@
 <?php
   //require_once("../controller/accessController.php");
   require_once("../controller/function_AutoLoad.php");
-  session_start();
+  if (!isset($_SESSION["garage"])) session_start();
   /*if (!accessController()){
     header("Location:login.php");
   }*/

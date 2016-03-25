@@ -17,14 +17,12 @@ require_once("showMessageWarnings.php");
     </form>
   </div>
 </div>
-<div class="row">
-<div class="col-md-4"></div>
-<div class="col-md-4">
-<?php
-  if(isset($warnings)){
-    showMessageWarnings($warnings);
-  }
-?>
-</div>
-</div>
+<?php if (isset($warnings)) { ?>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <?php showMessageWarnings($warnings); ?>
+
+        </div></div>
+<?php } ?>
 </html>

@@ -9,15 +9,13 @@
   </head>
   <body>
     <form method="POST" action="../controller/newRepairType.php">
-      Code <input type="number" name="code"/><br>
       Description <input type="text" name="description"/><br>
+      Cost <input type="text" name="cost"/><br>
       <input type="submit" value="New Repair Type" name="submit"/>
     </form>
   </body>
 </html>
 
 <?php
-  if (isset($_SESSION["warning"])){
-    showMessageWarnings($_SESSION["warning"]);
-  }
+require_once("feedbackMessages.php");
  ?>

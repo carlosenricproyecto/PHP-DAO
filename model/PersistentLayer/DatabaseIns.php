@@ -31,7 +31,9 @@ class DatabaseIns extends PDO{
         }
     }
     
-    
+    public function executeNonQuery($nonquery){
+        $nonquery->execute();
+    }
     public function executeQuery($query){
         $query->execute();
         $results = $query->fetchAll(PDO::FETCH_ASSOC);

@@ -1,75 +1,117 @@
 <?php
-  Class Repair{
-    private $vehicle;
+
+Class Repair {
+
+    private $id_repair;
+    private $id_vehicle;
     private $inDate;
     private $outDate;
     private $hours;
-    private $mechTeam;
-    private $repType;
+    private $id_mech_team;
+    private $id_repair_type;
 
-    public function Repair($vehicle,$inDate,$outDate,$hours,$mechTeam,$repType){
-        $this->setVehicle($vehicle);
+    public function __construct() {
+        $params = func_get_args();
+        $num_params = func_num_args();
+        $function = "__construct" . $num_params;
+        if (method_exists($this, $function)) {
+            call_user_func_array(array($this, $function), $params);
+        }
+    }
+
+    public function __construct6($id_vehicle, $inDate, $outDate, $hours, $id_mech_team, $id_repair_type) {
+        $this->setId_Vehicle($id_vehicle);
         $this->setInDate($inDate);
         $this->setOutDate($outDate);
         $this->setHours($hours);
-        $this->setMechTeam($mechTeam);
-        $this->setRepType($repType);
+        $this->setId_mech_team($id_mech_team);
+        $this->setId_repair_type($id_repair_type);
+    }
+    
+        public function __construct7($id_repair,$id_vehicle, $inDate, $outDate, $hours, $id_mech_team, $id_repair_type) {
+        $this->setId_repair($id_repair);
+        $this->setId_Vehicle($id_vehicle);
+        $this->setInDate($inDate);
+        $this->setOutDate($outDate);
+        $this->setHours($hours);
+        $this->setId_mech_team($id_mech_team);
+        $this->setId_repair_type($id_repair_type);
     }
 
 
-    public function setRepType($type){
-      $this->type=$type;
-    }
-    public function getRepType(){
-      return $this->type;
-    }
-    public function setVehicle($vehicle){
-      $this->vehicle=$vehicle;
+    public function persist() {
+        $daorepair = new daoRepair();
+        $daorepair->insertRepair($this);
     }
 
-    public function getVehicle(){
-      return $this->vehicle;
+    function getId_repair() {
+        return $this->id_repair;
     }
 
-    public function setInDate($inDate){
-      $this->inDate=$inDate;
+    function setId_repair($id_repair) {
+        $this->id_repair = $id_repair;
     }
 
-    public function getInDate(){
-      return $this->inDate;
+    function getId_vehicle() {
+        return $this->id_vehicle;
     }
 
-    public function setOutDate($outDate){
-      $this->outDate=$outDate;
-    }
-    public function getOutDate(){
-      return $this->outDate;
+    function getId_mech_team() {
+        return $this->id_mech_team;
     }
 
-    public function setHours($hours){
-      $this->hours=$hours;
+    function getId_repair_type() {
+        return $this->id_repair_type;
     }
 
-    public function getHours(){
-      return $this->hours;
-    }
-    public function getMechTeam(){
-      return $this->mechTeam;
-    }
-    public function setMechTeam($mechTeam){
-      $this->mechTeam=$mechTeam;
+    function setId_vehicle($id_vehicle) {
+        $this->id_vehicle = $id_vehicle;
     }
 
-    public function toString(){
-      return "Repair{".$this->getVehicle()->toString()." InDate: ".$this->getInDate()." OutDate: ".$this->getOutDate()." Hours: ".$this->getHours()." MechTeam".$this->getMechTeam()->toString()."}";
+    function setId_mech_team($id_mech_team) {
+        $this->id_mech_team = $id_mech_team;
     }
 
-    public function toArray(){
-      return $array=array($this->getVehicle()->getPlate(),$this->getInDate(),$this->getOutDate(),$this->getHours(),$this->getMechTeam()->getName(),$this->getRepType()->getDescription());
+    function setId_repair_type($id_repair_type) {
+        $this->id_repair_type = $id_repair_type;
     }
 
-    public function getVars(){
-      return get_class_vars(get_class($this));
+    public function setInDate($inDate) {
+        $this->inDate = $inDate;
     }
-  }
- ?>
+
+    public function getInDate() {
+        return $this->inDate;
+    }
+
+    public function setOutDate($outDate) {
+        $this->outDate = $outDate;
+    }
+
+    public function getOutDate() {
+        return $this->outDate;
+    }
+
+    public function setHours($hours) {
+        $this->hours = $hours;
+    }
+
+    public function getHours() {
+        return $this->hours;
+    }
+
+    public function toString() {
+        return "Repair{" . $this->getVehicle()->toString() . " InDate: " . $this->getInDate() . " OutDate: " . $this->getOutDate() . " Hours: " . $this->getHours() . " MechTeam" . $this->getMechTeam()->toString() . "}";
+    }
+
+    public function toArray() {
+        return $array = array($this->getId_repair(),$this->getId_vehicle(), $this->getInDate(), $this->getOutDate(), $this->getHours(), $this->getId_mech_team(), $this->getId_repair_type());
+    }
+
+    public function getVars() {
+        return get_class_vars(get_class($this));
+    }
+
+}
+
+?>

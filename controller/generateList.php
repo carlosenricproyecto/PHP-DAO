@@ -1,34 +1,33 @@
 <?php
-require_once("../model/autoload.php");
+require_once("function_AutoLoad.php");
 session_start();
 
-$garage=unserialize($_SESSION["garage"]);
+$garage= new Garage("aux");
 $object=$_REQUEST["object"];
 
 switch($object){
 
   case "Vehicles":
+    $garage->populateVehicles();
     $array=$garage->getVehicles();
   break;
   case "Mechanic Teams":
+    $garage->populateMechTeams();
     $array=$garage->getMechTeams();
   break;
   case "Reparations":
+    $garage->populateRepairs();
     $array=$garage->getRepairs();
   break;
   case "Repair Types":
+    $garage->populateRepairTypes();
     $array=$garage->getRepairTypes();
   break;
 }
 
-$_SESSION["list"]=$array;
-$_SESSION["title"]=$object;
+$arrayList=$array;
+$titleList=$object;
 
-if (count($_SESSION["list"])>0){
-  header("Location:../view/showList.php");
-}else{
-  $_SESSION["error"]="There are no registers of ".$object;
-  header("Location:../view/showMessageError.php");
-}
+require_once("../view/showList.php");
 
  ?>

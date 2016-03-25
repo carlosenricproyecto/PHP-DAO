@@ -11,7 +11,9 @@
   <body>
     <form action="../controller/newMechTeam.php" method="POST">
       Team name: <input type="text" name="name" /><br/>
+      Category: <input type="text" name="category"/><br/>
       <input type="submit" value="Register Mechanic Team" name="submit"/>
   </body>
 
+  <?php require_once("feedbackMessages.php");?>
 </html>

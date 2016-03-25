@@ -1,9 +1,8 @@
 <?php
-require_once("../model/autoload.php");
 require_once("loadDropDown.php");
 require_once("header.php");
 require_once("showMessageWarnings.php");
-$garage=unserialize($_SESSION["garage"]);
+$garage = new Garage("aux");
 ?>
 
 <html>
@@ -15,19 +14,18 @@ $garage=unserialize($_SESSION["garage"]);
 
   <body>
     <form action="../controller/newMechanic.php" method="POST">
-      Operator Number: <input type="number" name="opNumber" /><br/>
       Name: <input type="text" name="name" /><br/>
+      Salary: <input type="text" name="salary"/><br/>
       Mechanic Team:
 <?php
-  loadDropDown($garage->getMechTeams(),"Name","mechTeamName");
+  $garage->populateMechTeams();
+  loadDropDown($garage->getMechTeams(),"Name","mechteam","id_mech_team");
  ?>
 
-      <input type="submit" value="Register Mechanic" name="submit"/>
+      <br/><input type="submit" value="Register Mechanic" name="submit"/></form>
 
       <?php
-        if (isset($_SESSION["warning"])){
-          showMessageWarnings($_SESSION["warning"]);
-        }
+      require_once("feedbackMessages.php");
        ?>
 
   </body>

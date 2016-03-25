@@ -1,8 +1,7 @@
 <?php
-require_once("../model/autoload.php");
 require_once("loadDropDown.php");
 require_once("header.php");
-$garage=unserialize($_SESSION["garage"]);
+$garage= new Garage("aux");
 ?>
 <html>
 
@@ -15,7 +14,8 @@ $garage=unserialize($_SESSION["garage"]);
     <form action="../controller/newRepair.php" method="POST">
       Vehicle:
       <?php
-        loadDropDown($garage->getVehicles(),"Brand","repVehicle");
+        $garage->populateVehicles();
+        loadDropDown($garage->getVehicles(),"Brand","repVehicle","Id_vehicle");
        ?>
       <br/>
       In Date: <input type="date" name="inDate" /><br/>
@@ -23,12 +23,14 @@ $garage=unserialize($_SESSION["garage"]);
       Worked Hours: <input type="number" name="whours" /><br/>
       Mechanic Team:
       <?php
-        loadDropDown($garage->getMechTeams(),"Name","repMechTeam");
+      $garage->populateMechTeams();
+        loadDropDown($garage->getMechTeams(),"Name","repMechTeam","Id_mech_team");
        ?>
       <br/>
       Reparation type:
       <?php
-        loadDropDown($garage->getRepairTypes(),"Code","repType");
+      $garage->populateRepairTypes();
+        loadDropDown($garage->getRepairTypes(),"Description","repType","Id_repair_type");
        ?>
        <br/>
 
