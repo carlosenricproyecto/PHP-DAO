@@ -1,7 +1,6 @@
 <?php
-
+require_once("../config/path.inc.php");
 require_once("function_AutoLoad.php");
-require_once("../view/header.php");
 
 
 if (isset($_POST["submit"])) {
@@ -10,5 +9,5 @@ if (isset($_POST["submit"])) {
     $titleList = "Historic vehicle";
 }
 
-require_once("../view/showList.php");
+require_once($_GLOBALS["in_path"]."view/html/showList.php");
 ?>

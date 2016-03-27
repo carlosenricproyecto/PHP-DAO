@@ -27,20 +27,37 @@ Class User {
     }
 
     public function validateUser() {
-        if ($this->exists()){
+        if ($this->exists()) {
             $daouser = new daoUser();
-            $valid=$daouser->recoverUser($this->getLogin());
-            if ($valid->getLogin() == $this->getLogin() && $valid->getPassword() == $this->getPassword()){
+            $valid = $daouser->recoverUser($this->getLogin());
+            if ($valid->getLogin() == $this->getLogin() && $valid->getPassword() == $this->getPassword()) {
                 return true;
             }
         }
-        return false;    
+        return false;
     }
-    
-    public function exists(){
+
+    public function populate() {
         $daouser = new daoUser();
-        $check = $daouser ->recoverUser($this->getLogin());
-        if ($check) return true; else return false;
+        if ($this->exists()) {
+            $user = $daouser->recoverUser($this->getLogin());
+            $this->setLogin($user->getLogin());
+            $this->setPassword($user->getPassword());
+            if ($user->isAdmin()!= 0){
+                $this->setAdmin(true);
+            }else{
+                $this->setAdmin(false);
+            }
+        }
+    }
+
+    public function exists() {
+        $daouser = new daoUser();
+        $check = $daouser->recoverUser($this->getLogin());
+        if ($check)
+            return true;
+        else
+            return false;
     }
 
     public function getLogin() {

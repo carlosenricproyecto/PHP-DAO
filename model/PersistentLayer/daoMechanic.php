@@ -23,7 +23,6 @@ class daoMechanic {
             $nonquery->bindParam(":id_mech_team",$id_mech_team);
 
             $con->executeNonQuery($nonquery);
-            var_dump($nonquery->errorInfo());
             $con=null;
         } catch (Exception $ex) {
             echo "ERROR INSERTANDO MECANICO";

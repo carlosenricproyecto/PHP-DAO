@@ -1,4 +1,5 @@
 <?php
+require_once("../config/path.inc.php");
 require_once("function_AutoLoad.php");
 session_start();
 
@@ -28,6 +29,6 @@ switch($object){
 $arrayList=$array;
 $titleList=$object;
 
-require_once("../view/showList.php");
+require_once("../view/html/showList.php");
 
  ?>

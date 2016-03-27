@@ -1,12 +1,13 @@
 <?php
-require_once("header.php");
-require_once("showMessageWarnings.php");
+require_once("../../config/path.inc.php");
+require_once($_GLOBALS["in_path"]."view/html/header.php");
+require_once($_GLOBALS["in_path"]."view/html/showMessageWarnings.php");
 ?>
   <div class="container">
   <div class="row">
   <div class="col-md-4"></div>
   <div class="col-md-4">
-    <form action="../controller/authController.php" method="POST">
+    <form action="../../controller/authController.php" method="POST">
       Login: <input type="text" name="login" <?php if (isset($_COOKIE["user"])){
         echo 'value="'.$_COOKIE["user"].'"';
       } ?>

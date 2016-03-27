@@ -1,6 +1,6 @@
 <?php
+require_once("../config/path.inc.php");
 require_once("function_AutoLoad.php");
-require_once("ValidateRepairType.php");
 session_start();
 
 if (isset($_POST["submit"])){
@@ -9,5 +9,5 @@ if (isset($_POST["submit"])){
     $success="<strong>Repair type has been registered</strong>";
 }
 
-require_once("../view/repairTypeForm.php");
+require_once($_GLOBALS["in_path"]."view/html/repairTypeForm.php");
  ?>

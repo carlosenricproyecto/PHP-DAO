@@ -1,4 +1,5 @@
 <?php
+require_once("../config/path.inc.php");
 require_once("function_AutoLoad.php");
 
 session_start();
@@ -9,5 +10,5 @@ if (isset($_POST["submit"])){
     $success="<strong>The mechteam with name tal has been registered</strong>";
 }
 
-require_once("../view/mechTeamForm.php");
+require_once($_GLOBALS["in_path"]."view/html/mechTeamForm.php");
  ?>

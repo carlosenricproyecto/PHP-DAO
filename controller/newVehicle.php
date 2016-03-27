@@ -1,5 +1,5 @@
 <?php
-
+require_once("../config/path.inc.php");
 require_once("function_AutoLoad.php");
 
 session_start();
@@ -16,5 +16,5 @@ if (isset($_POST["submit"])) {
 } else {
     
 }
-require_once("../view/vehicleForm.php");
+require_once($_GLOBALS["in_path"]."view/html/vehicleForm.php");
 ?>

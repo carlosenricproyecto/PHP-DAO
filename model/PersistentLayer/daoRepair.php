@@ -26,7 +26,6 @@ Class daoRepair{
             $nonquery->bindParam(":id_repair_type",$id_repair_type);
             
             $con->executeNonQuery($nonquery);
-            var_dump($nonquery->errorInfo());
         } catch (Exception $ex) {
             echo "ERROR AL INSERTAR REPARACION";
 
