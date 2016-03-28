@@ -10,7 +10,7 @@ and open the template in the editor.
 
 .error{
     display:none;
-    color:red;
+    margin-top:5px;
 }
 .page-header{
     padding:0;

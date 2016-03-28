@@ -4,42 +4,83 @@
  * and open the template in the editor.
  */
 $(document).ready(function () {
+    $("#form").submit(function (event) {
+        var check = true;
+        if ($("input[name='name']").val() == null || $("input[name='name']").val() == "") {
+            check = false;
+        } else {
+            if (!submitAlfaNumeric($("input[name='name']").val()))
+                check = false;
+        }
+
+        if ($("input[name='category']").val() == null || $("input[name='category']").val() == "") {
+            check = false;
+        } else {
+            if (!submitAlphabetic($("input[name='category']").val()))
+                check = false;
+        }
+        if (!check) {
+            $("#mechteam_errorRE").show();
+            event.preventDefault();
+            return false;
+        }
+    })
     $("input[name='name']").on("change", isAlfaNumeric);
     $("input[name='category']").on("change", isAlphabetic);
 })
 
 
 
-
-function isAlfaNumeric(ev,rval,rattr){
-        var val ="";
-        var attr="";
-        if (rval == null | rval =="")  val = $(this).val(); else val=rval;
-        if (rattr == null | rattr =="")  attr = $(this).attr("name"); else attr =rattr;
-        var check=true;
-        var patt = /[\w \s]/g;
-        var patttest = /^[\w \s]*$/g;
-        var id = "#"+attr+"_errorAN";
-        if (!patttest.test(val)){
-            var aux = val.match(patt);
-            var str = aux.toString();
-            str = str.replace(/,/g,"");
-            $("input[name='"+attr+"']").val(str);  
-            check=false;
-            $(id).show();
-        }else{
-            $(id).hide();
-        }       
-        return check;
+function submitAlphabetic(val) {
+    var patt = /^[a-zA-ZáàéèíìóòúùÀÁÉÈÍÌÓÒÚÙäëïöüÄËÏÖÜ \s]*$/;
+    if (!patt.test(val))
+        return false;
+    else
+        return true;
 }
-
-function isAlphabetic(){
-    var patt = /[\d\W]/g;
-    var id ="#"+$(this).attr("name")+"_errorAL";
-    if (patt.test($(this).val())){
-        $(this).val($(this).val().replace(patt,""));
+function submitAlfaNumeric(val) {
+    var patt = /^[\w \s]*$/;
+    if (!patt.test(val))
+        return false;
+    else
+        return true;
+}
+function isAlfaNumeric() {
+    var val = $(this).val();
+    var attr = $(this).attr("name");
+    var check = true;
+    var patt = /[\w \s]/g;
+    var patttest = /^[\w \s]*$/;
+    var id = "#" + attr + "_errorAN";
+    if (!patttest.test(val)) {
+        var aux = val.match(patt);
+        var str = aux.toString();
+        str = str.replace(/,/g, "");
+        $("input[name='" + attr + "']").val(str);
+        check = false;
         $(id).show();
-    }else{
+    } else {
         $(id).hide();
     }
+    return check;
+}
+
+function isAlphabetic() {
+    var check = true;
+    var patt = /[a-zA-ZáàéèíìóòúùÀÁÉÈÍÌÓÒÚÙäëïöüÄËÏÖÜ \s]/g;
+    var patttest = /^[a-zA-ZáàéèíìóòúùÀÁÉÈÍÌÓÒÚÙäëïöüÄËÏÖÜ \s]*$/;
+    var id = "#" + $(this).attr("name") + "_errorAL";
+    if (!patttest.test($(this).val())) {
+        var val = $(this).val();
+        var aux = val.match(patt);
+        var str = aux.toString()
+        str = str.replace(/,/g, "");
+        ;
+        $(this).val(str);
+        check = false;
+        $(id).show();
+    } else {
+        $(id).hide();
+    }
+    return check;
 }

@@ -11,19 +11,21 @@ $garage = new Garage("aux");
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">  
-        <form action="<?php echo $_GLOBALS["re_path"]; ?>controller/newMechanic.php" method="POST">
-                    <?php
-        require_once("feedbackMessages.php");
-        ?>
+        <form id="form" action="<?php echo $_GLOBALS["re_path"]; ?>controller/newMechanic.php" method="POST">
+            <?php
+            require_once("feedbackMessages.php");
+            ?>
+            <div id="mechanic_errorRE" class="alert alert-warning error"><span class='glyphicon glyphicon-alert'></span>&nbsp&nbsp Tots els camps són requerits</div>
+            <h4>Mechanic Info </h4>
             <div class="form-group">
                 <label for="name">Name</label>
                 <input class="form-control" type="text" name="name" id="name" placeholder="name" />
-                <div class="alert alert-danger error" id="name_errorAL">Only letters for name</div>
+                <div class="alert alert-warning error" id="name_errorAL"><span class='glyphicon glyphicon-alert'></span>&nbsp&nbspOnly letters for name</div>
             </div>
             <div class="form-group">
                 <label for="salary">Salary</label>
                 <input class="form-control" type="text" name="salary" id="salary" placeholder="salary" />
-                <div class="alert alert-danger error" id="salary_errorDE">Only decimal number for cost in format (...xx,xx...)</div>
+                <div class="alert alert-warning error" id="salary_errorDE"><span class='glyphicon glyphicon-alert'></span>&nbsp&nbspOnly decimal number for cost in format (...xx,xx...)</div>
             </div>
             <div class="form-group">
                 <label for="name">Mech team</label>

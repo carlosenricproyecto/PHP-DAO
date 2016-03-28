@@ -12,7 +12,6 @@ Class daoRepairType{
             $con = new DatabaseIns();
             
             $nonquery = $con->prepare("INSERT INTO repair_type(description,cost) values (:description,:cost)");
-            var_dump($reptype);
             $description = $reptype->getDescription();
             $cost = $reptype->getCost();
             
@@ -20,7 +19,6 @@ Class daoRepairType{
             $nonquery->bindParam(":cost", $cost);
             
             $con->executeNonQuery($nonquery);
-            var_dump($nonquery->errorInfo());
             $con=null;
         } catch (Exception $ex) {
             echo "ERROR AL INSERTAR TIPO REPARACION";
