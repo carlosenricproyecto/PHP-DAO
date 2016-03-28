@@ -9,37 +9,34 @@ include("header.php");
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-1"></div>
-        <div class="col-md-4">
+        <div class="col-md-5">
             <a href="repairForm.php" class="thumbnail menuthumb">
                 <span class="glyphicon glyphicon-plus menuicon"></span>
                 <p class="menutext">Add Repair</p>
             </a>
         </div>
-        <div class=""col-md-1-></div>
-        <div class="col-md-4">
+        <div class="col-md-5">
             <div class="thumbnail menuthumb">
                 <span class="glyphicon glyphicon-edit menuicon"></span>
                 <p class="menutext">Edit Repair</p>
             </div>
         </div>
-        <div class=""col-md-1-></div>
     </div>
     <div class="row">
         <div class="col-md-1"></div>
-        <div class="col-md-4">
+        <div class="col-md-5">
             <a href="../../controller/generateList.php?object=Reparations" class="thumbnail menuthumb">
                 <span class="glyphicon glyphicon-list-alt menuicon"></span>
                 <p class="menutext">List Repair</p>
             </a>
         </div>
-        <div class=""col-md-1-></div>
-        <div class="col-md-4">
+        <div class="col-md-5">
             <div class="thumbnail menuthumb">
                 <span class="glyphicon glyphicon-remove menuicon"></span>
-                <p class="menutext">Delete Repair/p>
+                <p class="menutext">Delete Repair</p>
             </div>
         </div>
-        <div class=""col-md-1-></div>
+        <div class="col-md-1"></div>
         </div>
     </div>
 

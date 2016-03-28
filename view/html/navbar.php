@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-        <a href="<?php echo $_GLOBALS["re_path"]; ?>" class="navbar-brand"> Garage</a>
+        <a href="<?php echo $_GLOBALS["re_path"]; ?>" class="navbar-brand"> Best Garage Ever</a>
    </div>
 
 
@@ -45,7 +45,4 @@
   </div>
   </div>
 
-  <div class="container">
-  <div class="page-header text-center">
-      <h2>Dr. Sayos Garage<small> Best Garage Ever</small></h2>
-  </div>
+<div class="container"> 
