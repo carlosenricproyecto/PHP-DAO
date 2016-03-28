@@ -1,6 +1,7 @@
 <?php
 require_once("header.php");
-$class_vars = $arrayList[0]->getVars();
+if(isset($arrayList[0])){
+ $class_vars = $arrayList[0]->getVars();
 ?>
 
 <div class='panel panel-default'>
@@ -27,4 +28,10 @@ $class_vars = $arrayList[0]->getVars();
         }
         ?>
 
-    </table></div>
+    </table></div>   
+
+<?php }else{
+    $error="There are no Registers";
+    require_once("showMessageError.php");
+}
+?>

@@ -7,5 +7,6 @@
  */
 $_GLOBALS["check_path"]=true;
 $_GLOBALS["in_path"]="/var/www/html/M07/Uf4/PHP-DAO/";
-$_GLOBALS["re_path"]="http://localhost/M07/Uf4/PHP-DAO/";
+$localIP= $_SERVER["HTTP_HOST"];
+$_GLOBALS["re_path"]="http://".$localIP."/M07/Uf4/PHP-DAO/";
 ?>

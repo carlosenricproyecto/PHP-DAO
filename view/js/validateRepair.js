@@ -16,13 +16,13 @@ $(document).ready(function () {
         if ($(".inDate").val() == null || $(".inDate").val() == "") {
             check = false;
         } else {
-            if (!compareDate($(".inDate").val(), $(".outDate").val()))
+            if (compareDate($(".inDate").val(), $(".outDate").val()))
                 check = false;
         }
         if ($(".outDate").val() == null || $(".outDate").val() == "") {
             check = false;
         } else {
-            if (!compareDate($(".inDate").val(), $(".outDate").val()))
+            if (compareDate($(".inDate").val(), $(".outDate").val()))
                 check = false;
         }
         if (!check) {

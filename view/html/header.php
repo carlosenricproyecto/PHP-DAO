@@ -15,7 +15,7 @@ require_once($_GLOBALS["in_path"]."controller/function_AutoLoad.php");
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="<?php echo $_GLOBALS["re_path"]; ?>libs/bootstrap/css/bootstrap.min.css">
-  
+  <script src='https://www.google.com/recaptcha/api.js'></script>
   <script src="<?php echo $_GLOBALS["re_path"]; ?>libs/jquery/jquery-1.12.2.min.js"></script>
   <script src="<?php echo $_GLOBALS["re_path"]; ?>libs/bootstrap/js/bootstrap.min.js"></script>
   <script src="<?php echo $_GLOBALS["re_path"]; ?>libs/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>

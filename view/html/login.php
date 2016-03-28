@@ -1,29 +1,43 @@
 <?php
 require_once("../../config/path.inc.php");
-require_once($_GLOBALS["in_path"]."view/html/header.php");
-require_once($_GLOBALS["in_path"]."view/html/showMessageWarnings.php");
+require_once($_GLOBALS["in_path"] . "view/html/header.php");
+require_once($_GLOBALS["in_path"] . "view/html/showMessageWarnings.php");
 ?>
-  <div class="container">
-  <div class="row">
-  <div class="col-md-4"></div>
-  <div class="col-md-4">
-    <form action="../../controller/authController.php" method="POST">
-      Login: <input type="text" name="login" <?php if (isset($_COOKIE["user"])){
-        echo 'value="'.$_COOKIE["user"].'"';
-      } ?>
-      /><br/>
-      Password: <input type="text" name="pass"/><br/>
-      Remember user: <input type="checkbox" name="remember"/><br/>
-      <input type="submit" value="Log in" name="submit"/>
-    </form>
-  </div>
-</div>
-<?php if (isset($warnings)) { ?>
+<?php if (!isset($_SESSION["islogged"])) {?>
+<div class="container-fluid loginbody">
     <div class="row">
         <div class="col-md-4"></div>
-        <div class="col-md-4">
-            <?php showMessageWarnings($warnings); ?>
+        <div class="col-md-4 loginbox">
+            <form action="../../controller/authController.php" method="POST">
+                <div class="form-group">
+                    <label for="pass">Login</label>
+                    <input type="text" name="login"  class="form-control" <?php
+                    if (isset($_COOKIE["user"])) {
+                        echo 'value="' . $_COOKIE["user"] . '"';
+                    }
+                    ?>
+                </div>
+                <br/>
+                <div class="form-group">
+                    <label for="pass">Password</label>
+                    <input class="form-control" type="text" name="pass" id="pass" placeholder="pass" />
+                </div>
+                <div class="form-group">
+                    <label for="pass">Remember user</label>
+                    <input class="form-control" type="checkbox" name="remember" id="remember"/>
+                </div>
+                <input type="submit" value="Log in" class="btn btn-Primary" name="submit"/>
+                <div class="g-recaptcha" data-sitekey="6Lcj8BsTAAAAAI0V2GgreAuO6hkUTVSDICMmzyp6"></div>
+            </form>
+        </div>
+    </div>
+    <?php if (isset($warnings)) { ?>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <?php showMessageWarnings($warnings); ?>
 
-        </div></div>
+            </div></div>
+    <?php } ?>
 <?php } ?>
 </html>

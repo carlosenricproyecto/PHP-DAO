@@ -1,5 +1,5 @@
 
-<div class="navbar navbar-default navbar-static-top" role="navigation">
+<div class="navbar navbar-default navbar-static-top navbar-inverse" role="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -8,20 +8,21 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+        <a href="<?php echo $_GLOBALS["re_path"]; ?>" class="navbar-brand"> Garage</a>
    </div>
 
 
         <div class="collapse navbar-collapse">
-         <ul class="nav navbar-nav navbar-left">
+         <ul class="nav navbar-nav navbar-right">
 
 <?php
   if (isset($_SESSION["isadmin"]) && $_SESSION["isadmin"]==true){
 ?>
-        <li><a href="<?php echo $_GLOBALS["re_path"]; ?>view/html/vehicleForm.php"> Register a Vehicle </a></li>
-        <li><a href="<?php echo $_GLOBALS["re_path"]; ?>view/html/repairTypeForm.php"> New Repair Type</a></li>
-        <li><a href="<?php echo $_GLOBALS["re_path"]; ?>view/html/mechTeamForm.php"> New Mechanic Team</a></li>
-        <li><a href="<?php echo $_GLOBALS["re_path"]; ?>view/html/mechanicForm.php"> Register Mechanic </a></li>
-        <li><a href="<?php echo $_GLOBALS["re_path"]; ?>view/html/repairForm.php"> Register Reparation </a></li>
+        <li><a href="<?php echo $_GLOBALS["re_path"]; ?>view/html/menuVehicles.php"> Vehicles</a></li>
+        <li><a href="<?php echo $_GLOBALS["re_path"]; ?>view/html/menuRepairTypes.php"> Repair Types</a></li>
+        <li><a href="<?php echo $_GLOBALS["re_path"]; ?>view/html/menuMechTeam.php"> Mechanic Teams</a></li>
+        <li><a href="<?php echo $_GLOBALS["re_path"]; ?>view/html/menuMechanics.php"> Mechanics </a></li>
+        <li><a href="<?php echo $_GLOBALS["re_path"]; ?>view/html/menuRepairs.php"> Repairs </a></li>
         <li role="separator" class="divider"><a></a></li>
 <?php } ?>
         <li class="dropdown">
