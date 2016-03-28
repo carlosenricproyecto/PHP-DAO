@@ -9,6 +9,11 @@ require_once("showMessageWarnings.php");
     <div class="col-md-2"></div>
     <div class="col-md-8">  
         <form method="POST" action="<?php echo $_GLOBALS["re_path"]; ?>controller/newRepairType.php">
+            
+        <?php
+        require_once("feedbackMessages.php");
+        ?>
+
             <h4>Repair type info</h4>
             <div class="form-group">
                 <label for="description">Description</label>
@@ -24,7 +29,3 @@ require_once("showMessageWarnings.php");
         </form>
         </body>
         </html>
-
-        <?php
-        require_once("feedbackMessages.php");
-        ?>

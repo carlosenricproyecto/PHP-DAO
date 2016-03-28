@@ -19,6 +19,7 @@ require_once($_GLOBALS["in_path"]."controller/function_AutoLoad.php");
   <script src="<?php echo $_GLOBALS["re_path"]; ?>libs/jquery/jquery-1.12.2.min.js"></script>
   <script src="<?php echo $_GLOBALS["re_path"]; ?>libs/bootstrap/js/bootstrap.min.js"></script>
   <script src="<?php echo $_GLOBALS["re_path"]; ?>libs/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+  <script src="<?php echo $_GLOBALS["re_path"]; ?>view/js/comboBox.js" type="text/javascript"></script>
   <link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Dosis:400,600' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>

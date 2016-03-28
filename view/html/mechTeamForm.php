@@ -9,6 +9,7 @@ require_once("header.php");
     <div class="col-md-8">  
     <body>
         <form action="<?php echo $_GLOBALS["re_path"]; ?>controller/newMechTeam.php" method="POST">
+                <?php require_once($_GLOBALS["in_path"]."view/html/feedbackMessages.php"); ?>
             <div class="form-group">
                 <label for="name">Team name</label>
                 <input class="form-control" type="text" name="name" id="name" placeholder="name" />
@@ -22,5 +23,5 @@ require_once("header.php");
             <input type="submit" class="btn btn-default" value="submit" name="submit">
     </body>
     </div>
-    <?php require_once($_GLOBALS["in_path"]."view/html/feedbackMessages.php"); ?>
+
 </html>

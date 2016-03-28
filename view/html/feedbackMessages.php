@@ -4,8 +4,7 @@ require_once("showMessageSuccess.php");
 if (isset($warnings)) { ?>
 
     <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
+        <div class="col-md-12">
             
             <?php showMessageWarnings($warnings); ?>
 
@@ -16,8 +15,7 @@ if (isset($warnings)) { ?>
 <?php if (isset($success)){ ?>
 
         <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
+        <div class="col-md-12">
             <?php showMessageSuccess($success); ?>
 
         </div></div>

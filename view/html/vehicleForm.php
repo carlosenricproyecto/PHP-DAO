@@ -11,7 +11,8 @@ $garage = new Garage("aux");
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
-        <form method="POST" action="../../controller/newVehicle.php">
+        <form method="POST" action="../../controller/newVehicle.php" id="form">
+        <?php require_once("feedbackMessages.php"); ?>
         <h4>
             Vehicle Info
         </h4>
@@ -59,6 +60,6 @@ $garage = new Garage("aux");
             <input type="submit" class="btn btn-default" value="submit" name="submit">
         </form>
     </div>
-    <?php require_once("feedbackMessages.php"); ?>
+    
 </body>
 </html>

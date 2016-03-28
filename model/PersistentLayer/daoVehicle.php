@@ -20,7 +20,7 @@ Class daoVehicle {
             
             $con = null;  
             if ($query->rowCount() > 0)
-                $vehicle = new Vehicle($res[0]['id'],$res[0]['plate'], $res[0]['brand'], $res[0]['model'],$res[0]['gas_type'],$res[0]['nif'],$res[0]['name'],$res[0]['surname']);
+                $vehicle = new Vehicle($res[0]['id_vehicle'],$res[0]['plate'], $res[0]['brand'], $res[0]['model'],$res[0]['gas_type'],$res[0]['nif'],$res[0]['name'],$res[0]['surname']);
         } catch (Exception $ex) {
             echo "error al recuperar vehiculo de la bbdd";
         }

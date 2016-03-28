@@ -6,6 +6,7 @@
 
 $(document).ready(function () {
     $("input[name='name']").on("change", isAlphabetic);
+    $("#mechteam").combobox();
     $("input[name='salary']").on("change", isDecimal);
 })
 

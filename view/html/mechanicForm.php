@@ -12,6 +12,9 @@ $garage = new Garage("aux");
     <div class="col-md-2"></div>
     <div class="col-md-8">  
         <form action="<?php echo $_GLOBALS["re_path"]; ?>controller/newMechanic.php" method="POST">
+                    <?php
+        require_once("feedbackMessages.php");
+        ?>
             <div class="form-group">
                 <label for="name">Name</label>
                 <input class="form-control" type="text" name="name" id="name" placeholder="name" />
@@ -33,9 +36,7 @@ $garage = new Garage("aux");
 
             <br/><input type="submit" class="btn btn-default" value="Register Mechanic" name="submit"/></form>
 
-        <?php
-        require_once("feedbackMessages.php");
-        ?>
+
     </div>
 </body>
 

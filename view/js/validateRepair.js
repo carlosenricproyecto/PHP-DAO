@@ -9,6 +9,9 @@ $(document).ready(function(){
     $(".inDate").on("change",validInDate);
     $(".outDate").on("change",validOutDate);
     $("input[name='whours']").on("change",isInteger);
+    $("#repVehicle").combobox();
+    $("#repMechTeam").combobox();
+    $("#repType").combobox();
 })
 
 

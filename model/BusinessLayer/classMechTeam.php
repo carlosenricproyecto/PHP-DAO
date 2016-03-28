@@ -70,7 +70,9 @@ Class MechTeam {
     }
 
     public function toArray() {
-        return $array = array($this->getId_mech_team(),$this->getName(), count($this->getMechanics()));
+        $daomechteam = new daoMechTeam();
+        $this->setMechanics($daomechteam->fetchMechanics($this));
+        return $array = array($this->getId_mech_team(),$this->getName(),$this->getCategory(), count($this->getMechanics()));
     }
 
     public function getVars() {
