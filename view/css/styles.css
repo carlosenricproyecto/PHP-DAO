@@ -64,3 +64,6 @@ and open the template in the editor.
     cursor:pointer;
     text-decoration: none;
 }
+.g-recaptcha{
+    margin-top:5%;
+}

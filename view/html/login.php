@@ -20,14 +20,15 @@ require_once($_GLOBALS["in_path"] . "view/html/showMessageWarnings.php");
                 <br/>
                 <div class="form-group">
                     <label for="pass">Password</label>
-                    <input class="form-control" type="text" name="pass" id="pass" placeholder="pass" />
+                    <input class="form-control" type="password" name="pass" id="pass" placeholder="pass" />
                 </div>
                 <div class="form-group">
                     <label for="pass">Remember user</label>
                     <input class="form-control" type="checkbox" name="remember" id="remember"/>
                 </div>
                 <input type="submit" value="Log in" class="btn btn-Primary" name="submit"/>
-                <div class="g-recaptcha" data-sitekey="6Lcj8BsTAAAAAI0V2GgreAuO6hkUTVSDICMmzyp6"></div>
+                <div class="g-recaptcha" data-sitekey="6Lcj8BsTAAAAAI0V2GgreAuO6hkUTVSDICMmzyp6">
+                </div>
             </form>
         </div>
     </div>
