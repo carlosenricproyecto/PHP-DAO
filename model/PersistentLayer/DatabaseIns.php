@@ -27,7 +27,7 @@ class DatabaseIns extends PDO{
         $dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
         parent::__construct($dsn,$this->getUser(),$this->getPass());       
         }catch(Exception $e){
-            echo "ERROR AL CREAR CONEXIÓN";
+            echo "ERROR AL CREAR CONEXIÓN".$this->host."/".$this->dbname."/".$this->pass;
         }
     }
     

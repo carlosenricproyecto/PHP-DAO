@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 $_GLOBALS["check_path"]=true;
-$_GLOBALS["in_path"]="/var/www/html/M07/Uf4/PHP-DAO/";
+$_GLOBALS["in_path"]="/var/www/html/PHP-DAO/PHP-DAO/";
 $localIP= $_SERVER["HTTP_HOST"];
-$_GLOBALS["re_path"]="http://".$localIP."/M07/Uf4/PHP-DAO/";
+$_GLOBALS["re_path"]="http://".$localIP."/PHP-DAO/PHP-DAO/";
 ?>
