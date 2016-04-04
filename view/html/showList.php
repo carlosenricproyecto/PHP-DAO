@@ -6,37 +6,35 @@ if (isset($arrayList[0])) {
 
     <div> <!--class='panel panel-default'-->
         <div class='text-center'> <h3><?php echo $titleList ?></h3></div>
-        <table id="table-cont" class='table'>
-                <?php
-                $arrayList2Json = array();
-                for ($i = 0; $i < count($arrayList); $i++) {
-                    $aux2 = $arrayList[$i]->toArray();
-                    array_push($arrayList2Json, $aux2);
-                }
-                $columnsList = array();
-                for ($i = 0; $i < count($class_vars); $i++) {
-                    array_push($columnsList, key($class_vars));
-                    next($class_vars);
-                }
-                //var_dump(json_encode($columnsList));
-                //echo json_encode($arrayList2Json);
-                //var_dump(json_encode($arrayList));
-                ?>
+        <table id="table-cont" class='table table-bordered table-responsive table-hover table-striped'>
+            <?php
+            $arrayList2Json = array();
+            for ($i = 0; $i < count($arrayList); $i++) {
+                $aux2 = $arrayList[$i]->toArray();
+                array_push($arrayList2Json, $aux2);
+            }
+            $columnsList = array();
+            $colTitle = array();
+            for ($i = 0; $i < count($class_vars); $i++) {
+                $columnsList[$i]['title'] = key($class_vars);
+                next($class_vars);
+            }
+            //var_dump(json_encode($columnsList));
+            //echo json_encode($arrayList2Json);
+            //var_dump(json_encode($arrayList));
+            ?>
         </table>
         <script type="text/javascript">
             var columns1 = '<?php echo json_encode($columnsList); ?>';
             var columns = JSON.parse(columns1);
             var dataset1 = '<?php echo json_encode($arrayList2Json); ?>';
             var dataset = JSON.parse(dataset1);
-            var c = [];
-            for(var i = 0; i < columns.length; i++){
-                c['title'] = columns[i];
-            }
+            
 
             $(document).ready(function () {
                 $('#table-cont').DataTable({
                     data: dataset,
-                    columns: c
+                    columns: columns
                 });
             });
         </script>
