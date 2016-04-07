@@ -10,7 +10,7 @@ include("header.php");
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-5">
-            <a href="repairForm.php" class="thumbnail menuthumb">
+            <a href="../../controller/newRepair.php" class="thumbnail menuthumb">
                 <span class="glyphicon glyphicon-plus menuicon"></span>
                 <p class="menutext">Add Repair</p>
             </a>

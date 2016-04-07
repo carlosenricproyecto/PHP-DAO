@@ -2,7 +2,6 @@
 require_once("header.php");
 require_once("loadDropDown.php");
 
-$garage = new Garage("aux");
 ?>
 <script src="<?php echo $_GLOBALS["re_path"]; ?>view/js/validateRepair.js" type="text/javascript"></script>
 <div class="row">
@@ -19,7 +18,6 @@ $garage = new Garage("aux");
                 <div class="form-group">
                     <label for="inDate">Vehicle</label>          
                     <?php
-                    $garage->populateVehicles();
                     loadDropDown($garage->getVehicles(), "Brand", "repVehicle", "Id_vehicle");
                     ?>
                 </div>
@@ -43,7 +41,6 @@ $garage = new Garage("aux");
                     <label for="inDate">Mechanic Team</label>    
 
                     <?php
-                    $garage->populateMechTeams();
                     loadDropDown($garage->getMechTeams(), "Name", "repMechTeam", "Id_mech_team");
                     ?>
                 </div>
@@ -51,7 +48,6 @@ $garage = new Garage("aux");
                     <label for="inDate">Reparation type</label>    
 
                     <?php
-                    $garage->populateRepairTypes();
                     loadDropDown($garage->getRepairTypes(), "Description", "repType", "Id_repair_type");
                     ?>
                 </div>

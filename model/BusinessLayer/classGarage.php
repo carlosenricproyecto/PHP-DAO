@@ -39,7 +39,7 @@ Class Garage {
     public function setUsers($users) {
         $this->users = $users;
     }
-
+    
     public function getRepairs() {
         return $this->repairs;
     }
@@ -103,7 +103,12 @@ Class Garage {
     public function setVehicles($vehicles) {
         $this->vehicles = $vehicles;
     }
-
+    
+    public function addVehicle($plate,$brand,$model,$type,$nif,$name,$surname){
+        $vehicle = new Vehicle($plate,$brand,$model,$type,$nif,$name,$surname);
+        array_push($this->getVehicles(),$vehicle);
+        $vehicle->persist();
+    }
     public function populateVehicles() {
         $daogarage = new daoGarage();
         $vehicles = $daogarage->fetchVehicles();

@@ -1,6 +1,6 @@
 <?php
 function __autoload($class_name){
-    $root = "/var/www/html/PHP-DAO/PHP-DAO";
+    $root = "/var/www/html/M07/Uf4/PHP-DAO";
     $curdir = getcwd();
     chdir($root);
 

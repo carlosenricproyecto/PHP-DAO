@@ -21,6 +21,7 @@ class DatabaseIns extends PDO{
 
     }
 
+
     public function Open(){
         try{
         // Set DSN

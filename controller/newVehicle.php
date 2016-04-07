@@ -13,8 +13,11 @@ if (isset($_POST["submit"])) {
     } else {
         array_push($warnings, "<strong> The vehicle with plate tal already exists</strong>");
     }
-} else {
-    
 }
+
+$garage = new Garage("aux");
+$garage->populateGasTypes();
+
+
 require_once($_GLOBALS["in_path"]."view/html/vehicleForm.php");
 ?>

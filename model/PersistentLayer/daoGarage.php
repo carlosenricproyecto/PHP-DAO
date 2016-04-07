@@ -27,6 +27,7 @@ Class daoGarage {
                 $vehicle = new Vehicle($id,$plate,$brand,$model,$type,$nif,$name,$surname);
                 array_push($vehicles,$vehicle);
             }
+            $con=null;
         } catch (Exception $ex) {
             echo "ERROR recuperando vehiculos";
         }
@@ -50,6 +51,7 @@ Class daoGarage {
                 $repair = new Repair($id_repair,$id_vehicle,$inDate,$outDate,$hours,$id_mech_team,$id_repair_type);
                 array_push($repairs,$repair);
             }
+            $con = null;
         } catch (Exception $ex) {
             echo "ERROR RECUPERANDO REPARACIONES";
         }
@@ -69,6 +71,7 @@ Class daoGarage {
                 $reptype = new RepairType($id_repair_type,$description,$cost);
                 array_push($reptypes,$reptype);
             }
+            $con = null;
         } catch (Exception $ex) {
             echo"ERROR RECUPERANDO REPTYPES";
         }
@@ -88,6 +91,7 @@ Class daoGarage {
                 $mechteam= new MechTeam($id_mech_team,$name,$category);
                 array_push($mechteams,$mechteam);
             }
+            $con = null;
         } catch (Exception $ex) {
             echo "ERROR RECUPERANDO MECHTEAMS";
         }
@@ -114,6 +118,7 @@ Class daoGarage {
                 $repair = new Repair($id_repair,$id_vehicle,$inDate,$outDate,$hours,$id_mech_team,$id_repair_type);
                 array_push($repairs,$repair);
             }
+            $con = null; 
         } catch (Exception $ex) {
             echo "ERROR RECUPERANDO HISTORIAL";
         }
@@ -128,11 +133,12 @@ Class daoGarage {
             $res=$con->executeQuery($query);
             
             foreach($res as $row){
-                $id_gas=$row["id_gas"];
+                $id_gas=$row["gas_id"];
                 $description=$row["description"];
                 $gastype=new Gas($id_gas,$description);
                 array_push($gastypes,$gastype);
             }
+            $con = null;
         } catch (Exception $ex) {
 
         }

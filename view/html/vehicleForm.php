@@ -3,13 +3,12 @@ require_once("header.php");
 require_once("showMessageWarnings.php");
 require_once("showMessageSuccess.php");
 require_once("loadDropDown.php");
-$garage = new Garage("aux");
 ?>
-<script src="../js/validateVehicle.js" type="text/javascript"></script>
+<script src="<?php echo $_GLOBALS["re_path"] ?>view/js/validateVehicle.js" type="text/javascript"></script>
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
-        <form method="POST" action="../../controller/newVehicle.php" id="form">
+        <form method="POST" action="<?php echo $_GLOBALS["re_path"] ?>controller/newVehicle.php" id="form">
             <div id="vehicle_errorRE" class="alert alert-warning error"><span class='glyphicon glyphicon-alert'></span>&nbsp&nbsp Tots els camps són requerits</div>
             <?php require_once("feedbackMessages.php"); ?>
             <h4>
@@ -33,7 +32,6 @@ $garage = new Garage("aux");
             <div class="form-group">
                 <label for="type">GAS TYPE</label>
                 <?php
-                $garage->populateGasTypes();
                 loadDropDown($garage->getGasTypes(), "Description", "type", "Id_gas");
                 ?>
             </div>
