@@ -4,6 +4,7 @@ require_once("showMessageWarnings.php");
 require_once("showMessageSuccess.php");
 require_once("loadDropDown.php");
 if (isset($selection)){
+    $id = $selection->getId_vehicle();
     $plate = $selection->getPlate();
     $brand = $selection->getBrand();
     $model = $selection->getModel();
@@ -76,8 +77,13 @@ if (isset($selection)){
                 <label for="surname">Surname</label>
                 <input class="form-control" type="text" name="surname" id="surname" placeholder="surname" value="<?php echo $surname;?>"/>
                 <div class="alert alert-warning error" id="surname_errorAL"><span class='glyphicon glyphicon-alert'></span>&nbsp&nbspOnly letters for Surname</div>
-            </div>      
+            </div>  
+            <?php if (isset($id)){
+                echo "<input type='hidden' value='".$id."' name='id'/>";
+            }
+            ?>
             <input type="submit" class="btn btn-default" value="submit" name="submit">
+
         </form>
     </div>
 

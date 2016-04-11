@@ -18,7 +18,7 @@ if (isset($_POST["selection"])){
     
 }else{
     if (isset($_POST["submit"])){
-        $vehicle = new Vehicle($_POST["plate"], $_POST["brand"], $_POST["model"], $_POST["type"], $_POST["nif"], $_POST['name'], $_POST['surname']);
+        $vehicle = new Vehicle($_POST["id"],$_POST["plate"], $_POST["brand"], $_POST["model"], $_POST["type"], $_POST["nif"], $_POST['name'], $_POST['surname']);
         $vehicle->persist();
         $success = "<strong> The vehicle with plate tal has been updated</strong>";
     }

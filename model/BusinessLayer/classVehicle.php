@@ -42,7 +42,7 @@ class Vehicle {
     }
     public function exists() {
         $daovehicle = new daoVehicle();
-        $check = $daovehicle->recoverVehicle($this->getPlate());
+        $check = $daovehicle->exists($this);
         if ($check)
             return true;
         else
@@ -54,9 +54,7 @@ class Vehicle {
         if (!$this->exists()){           
             $daovehicle->insertVehicle($this);
         }else{
-            $vehicle=$daovehicle->recoverVehicle($this->getPlate());
-            var_dump($vehicle);
-            $daovehicle->updateVehicle($vehicle);
+            $daovehicle->updateVehicle($this);
         }
 
     }
