@@ -5,7 +5,7 @@ require_once($_GLOBALS["in_path"] . "controller/function_AutoLoad.php");
 require_once("loadDropDown.php");
 require_once("header.php");
 require_once("showMessageWarnings.php");
-$garage = new Garage("aux");
+
 ?>
 <script src="<?php echo $_GLOBALS["re_path"]; ?>view/js/validateMech.js" type="text/javascript"></script>
 <div class="row">
@@ -30,7 +30,6 @@ $garage = new Garage("aux");
             <div class="form-group">
                 <label for="name">Mech team</label>
                 <?php
-                $garage->populateMechTeams();
                 loadDropDown($garage->getMechTeams(), "Name", "mechteam", "id_mech_team");
                 ?>
             </div>

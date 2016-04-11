@@ -114,6 +114,16 @@ Class Garage {
         $vehicles = $daogarage->fetchVehicles();
         $this->setVehicles($vehicles);
     }
+    public function searchVehicle($id){
+        $res = false;
+        $aux = $this->getVehicles();
+        for ($i = 0 ; $i < count($aux); $i++ ){
+            if ($aux[$i]->getId_vehicle() == $id){
+                $res = $aux[$i];
+            }
+        }
+        return $res;
+    }
 
 }
 

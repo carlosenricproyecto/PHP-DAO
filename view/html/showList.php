@@ -19,9 +19,7 @@ if (isset($arrayList[0])) {
                 $columnsList[$i]['title'] = key($class_vars);
                 next($class_vars);
             }
-            //var_dump(json_encode($columnsList));
-            //echo json_encode($arrayList2Json);
-            //var_dump(json_encode($arrayList));
+
             ?>
         </table>
         <script type="text/javascript">

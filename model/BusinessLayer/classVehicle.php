@@ -51,7 +51,14 @@ class Vehicle {
 
     public function persist() {
         $daovehicle = new daoVehicle();
-        $daovehicle->insertVehicle($this);
+        if (!$this->exists()){           
+            $daovehicle->insertVehicle($this);
+        }else{
+            $vehicle=$daovehicle->recoverVehicle($this->getPlate());
+            var_dump($vehicle);
+            $daovehicle->updateVehicle($vehicle);
+        }
+
     }
 
     function getId_vehicle() {

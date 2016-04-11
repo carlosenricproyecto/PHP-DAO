@@ -55,5 +55,38 @@ Class daoVehicle {
             echo "error al insertar vehiculo";
         }
     }
+    
+    public function updateVehicle($vehicle){
+                try{
+            $con = new DatabaseIns();
+            
+            $nonquery = $con->prepare("UPDATE vehicle SET plate=:plate, brand=:brand, model=:model; gas_type=:gas_type, nif=:nif,name=:name,surname=:surname where id_vehicle=:id_vehicle");
+            $id_vehicle = $vehicle->getId_vehicle();
+            $plate=$vehicle->getPlate();
+            $brand=$vehicle->getBrand();
+            $model=$vehicle->getModel();
+            $type=$vehicle->getType();
+            $nif=$vehicle->getNif();
+            $name=$vehicle->getName();
+            $surname=$vehicle->getSurname();
+            
+            $nonquery->bindParam(":id_vehicle",$id_vehicle);
+            $nonquery->bindParam(":plate",$plate);
+            $nonquery->bindParam(":brand",$brand);
+            $nonquery->bindParam(":model",$model);
+            $nonquery->bindParam(":gas_type",$type);
+            $nonquery->bindParam(":nif",$nif);
+            $nonquery->bindParam(":name",$name);
+            $nonquery->bindParam(":surname",$surname);
+            
+            $con->executeNonQuery($nonquery);
+            var_dump($nonquery->errorInfo());
+            var_dump($id_vehicle);
+            $con=null;
+        } catch (Exception $ex) {
+           
+    }
 
 }
+}
+?>

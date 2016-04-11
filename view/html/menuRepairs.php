@@ -16,10 +16,10 @@ include("header.php");
             </a>
         </div>
         <div class="col-md-5">
-            <div class="thumbnail menuthumb">
+            <a href="../../controller/editVehicle.php" class="thumbnail menuthumb">
                 <span class="glyphicon glyphicon-edit menuicon"></span>
                 <p class="menutext">Edit Repair</p>
-            </div>
+            </a>
         </div>
     </div>
     <div class="row">

@@ -9,5 +9,8 @@ if (isset($_POST['submit'])){
     $success="<strong>The mechanic with name tal has been created</strong>";
 }
 
+$garage = new Garage("aux");
+$garage->populateMechTeams();
+
 require_once($_GLOBALS["in_path"]."view/html/mechanicForm.php");
  ?>
