@@ -15,6 +15,7 @@ require_once("loadDropDown.php");
     <div class="col-md-2"></div>
     <div class="col-md-8"> 
 <h4>Select a Vehicle and press Submit </h4>
+<?php require_once($_GLOBALS["in_path"]."view/html/feedbackMessages.php"); ?>
 <form method="POST" action="<?php echo $_GLOBALS["re_path"]; ?>controller/editVehicle.php" >
     <div class="form-group">
         <label for="inDate">Vehicle</label>          

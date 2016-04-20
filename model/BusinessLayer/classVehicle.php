@@ -51,7 +51,7 @@ class Vehicle {
 
     public function persist() {
         $daovehicle = new daoVehicle();
-        if (!$this->exists()){           
+        if (!$this->exists()){ 
             $daovehicle->insertVehicle($this);
         }else{
             $daovehicle->updateVehicle($this);

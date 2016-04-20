@@ -26,7 +26,8 @@ Class Garage {
     public function setGasTypes($gasTypes) {
         $this->gasTypes = $gasTypes;
     }
-    public function populateGasTypes(){
+
+    public function populateGasTypes() {
         $daogarage = new daoGarage();
         $gastypes = $daogarage->fetchGasTypes();
         $this->setGasTypes($gastypes);
@@ -39,7 +40,7 @@ Class Garage {
     public function setUsers($users) {
         $this->users = $users;
     }
-    
+
     public function getRepairs() {
         return $this->repairs;
     }
@@ -82,6 +83,17 @@ Class Garage {
         $this->repairTypes = $repairTypes;
     }
 
+    public function searchRepairType($id) {
+        $res = false;
+        $aux = $this->getRepairTypes();
+        for ($i = 0; $i < count($aux); $i++) {
+            if ($aux[$i]->getId_repair_type() == $id) {
+                $res = $aux[$i];
+            }
+        }
+        return $res;
+    }
+
     public function populateRepairTypes() {
         $daogarage = new daoGarage();
         $repairTypes = $daogarage->fetchRepairTypes();
@@ -103,22 +115,24 @@ Class Garage {
     public function setVehicles($vehicles) {
         $this->vehicles = $vehicles;
     }
-    
-    public function addVehicle($plate,$brand,$model,$type,$nif,$name,$surname){
-        $vehicle = new Vehicle($plate,$brand,$model,$type,$nif,$name,$surname);
-        array_push($this->getVehicles(),$vehicle);
+
+    public function addVehicle($plate, $brand, $model, $type, $nif, $name, $surname) {
+        $vehicle = new Vehicle($plate, $brand, $model, $type, $nif, $name, $surname);
+        array_push($this->getVehicles(), $vehicle);
         $vehicle->persist();
     }
+
     public function populateVehicles() {
         $daogarage = new daoGarage();
         $vehicles = $daogarage->fetchVehicles();
         $this->setVehicles($vehicles);
     }
-    public function searchVehicle($id){
+
+    public function searchVehicle($id) {
         $res = false;
         $aux = $this->getVehicles();
-        for ($i = 0 ; $i < count($aux); $i++ ){
-            if ($aux[$i]->getId_vehicle() == $id){
+        for ($i = 0; $i < count($aux); $i++) {
+            if ($aux[$i]->getId_vehicle() == $id) {
                 $res = $aux[$i];
             }
         }

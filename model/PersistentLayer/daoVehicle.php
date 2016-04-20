@@ -11,11 +11,11 @@ Class daoVehicle {
     public function exists($vehicle){
         $check = true;
         $plateCheck = $this->recoverVehicle($vehicle->getPlate());
-        if ($plateCheck){
+        if (!$plateCheck){
             $check =false;
         }
         $idCheck = $this->searchVehicle($vehicle->getId_vehicle());
-        if ($idCheck){
+        if (!$idCheck){
             $check = false;
         }
         return $check;
@@ -25,7 +25,7 @@ Class daoVehicle {
         try {
             $con = new DatabaseIns();
             
-            $query = $con->prepare("SELECT * FROM vehicle where id = :id ");
+            $query = $con->prepare("SELECT * FROM vehicle where id_vehicle = :id ");
             $query->bindParam(":id", $id);
             $res = $con->executeQuery($query);
             
@@ -99,8 +99,7 @@ Class daoVehicle {
             $nif=$vehicle->getNif();
             $name=$vehicle->getName();
             $surname=$vehicle->getSurname();
-            
-            echo "UPDATE vehicle SET plate = ".$plate.", brand =".$brand.", model=".$model.",gas_type=".$type.",nif=".$nif.",name=".$name.",surname=".$surname."where id_vehicle=".$id_vehicle;
+           
             
             $nonquery->bindParam(":id_vehicle",$id_vehicle);
             $nonquery->bindParam(":plate",$plate);

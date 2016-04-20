@@ -15,12 +15,12 @@ include("header.php");
                 <p class="menutext">Afegir Vehicle</p>
             </a>
         </div>
-        <a href="../../controller/editVehicle.php" class="col-md-5">
-            <div class="thumbnail menuthumb">
+        <div class="col-md-5">
+            <a href="../../controller/editVehicle.php" class="thumbnail menuthumb">
                 <span class="glyphicon glyphicon-edit menuicon"></span>
                 <p class="menutext">Editar Vehicle</p>
-            </div>
-        </a>
+            </a>
+        </div>
     </div>
     <div class="row">
         <div class="col-md-1"></div>
