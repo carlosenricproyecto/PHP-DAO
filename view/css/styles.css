@@ -71,3 +71,18 @@ and open the template in the editor.
     box-shadow:0 0 2em #101010!important;
     border:0.1875em solid#9d9d9d!important;
 }
+
+.opinion-form{
+    background-color: #101010;
+    color: #fff;
+    text-align: center;
+}
+.opinion-form>*{
+    margin-bottom: 1em;
+}
+
+.opinion-form > button{
+    background-color: #101010;
+    border-color: #fff;
+    color: #fff;
+}
