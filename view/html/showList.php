@@ -19,7 +19,6 @@ if (isset($arrayList[0])) {
                 $columnsList[$i]['title'] = key($class_vars);
                 next($class_vars);
             }
-
             ?>
         </table>
         <script type="text/javascript">
@@ -27,17 +26,44 @@ if (isset($arrayList[0])) {
             var columns = JSON.parse(columns1);
             var dataset1 = '<?php echo json_encode($arrayList2Json); ?>';
             var dataset = JSON.parse(dataset1);
-            
+
 
             $(document).ready(function () {
                 $('#table-cont').DataTable({
                     data: dataset,
                     columns: columns
                 });
+                if ("<?php echo $_GET['object']; ?>" == "Vehicles") {
+                    $('#print-form').append("<button id='chart-bt'>Show chart</button>");
+                    $('#chart-bt').attr('class', 'btn btn-primary');
+                    $('#chart-bt').click(showChart);
+                }
             });
+            function showChart() {
+                document.getElementById('vchart').style.display = 'block';
+                $.ajax({
+                    data: null,
+                    url: '../controller/getVehiclesChart.php',
+                    type: 'post',
+                    success: function (response) {
+                        if (response == 'no') {
+                            alert(response);
+                        } else {
+                            var resp = JSON.parse(response);
+                            Morris.Donut({
+                                element: 'vchart',
+                                data: resp
+                            });
+                        }
+                    }
+                });
+
+
+            }
+            ;
         </script>
     </div>
-    <div>
+    <div id="print-form">
         <form method="post" action="../../PHP-DAO/controller/printPDF.php">
             <input type="hidden" name="title-list" value="<?php echo $titleList; ?>">
             <input type="hidden" name="vars-list" value="<?php echo base64_encode(serialize($class_vars)); ?>">
@@ -45,7 +71,9 @@ if (isset($arrayList[0])) {
             <input type="submit" class="btn btn-primary" value="Print PDF">
         </form>
     </div>
+    <div id="vchart" style="display: none;">
 
+    </div>
     <?php
 } else {
     $error = "There are no Registers";

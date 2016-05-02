@@ -22,6 +22,9 @@ require_once($_GLOBALS["in_path"] . "controller/function_AutoLoad.php");
         <script src="<?php echo $_GLOBALS["re_path"]; ?>libs/bootstrap/js/bootstrap.min.js"></script>
         <script src="<?php echo $_GLOBALS["re_path"]; ?>libs/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
         <script src="<?php echo $_GLOBALS["re_path"]; ?>view/js/comboBox.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 
         <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
         <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">

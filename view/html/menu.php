@@ -29,6 +29,7 @@ require_once("header.php");
     <script type="text/javascript">
         $(document).ready(function () {
             showOpinions();
+            setInterval(function(){ showOpinions();}, 3000);
         });
 
         function sendOpinion() {
