@@ -53,6 +53,7 @@ require_once("header.php");
         }
 
         function showOpinions() {
+            $('.opinion-list').html('');
             $.ajax({
                 data: null,
                 url: '../../controller/getOpinions.php',
